@@ -5,7 +5,7 @@ Hi there 👋 I'm Björn Hjorth
 I like combining the web stack and game development, if you like what you see please do not be a stranger and say "Hi" on Twitter [@colorsofcode](https://twitter.com/colorsofcode)
 
 ## 💡 About the project
-The Babylon.js starting template written in JavaScript is designed to leverage the advantages of TypeScript while still allowing developers to write their code in JavaScriptand keep the development experience free from a build step.
+The Babylon.js starting template is designed to leverage the advantages of TypeScript while still allowing developers to write their code in JavaScript and keep the development experience free from a build step.
 
 The template is based on the `Starter HTML Template` from [Babylon.js](https://doc.babylonjs.com/setup/starterHTML)
 
