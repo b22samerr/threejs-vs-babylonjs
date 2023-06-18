@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "checkJs": true,   
+    "paths": {
+      "@babylonjs/core/*": [ "./node_modules/@babylonjs/core/*"]
+    },   
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+  }
+}
