@@ -5,13 +5,13 @@ Hi there 👋 I'm Björn Hjorth
 I like combining the web stack and game development, if you like what you see please do not be a stranger and say "Hi" on Twitter [@colorsofcode](https://twitter.com/colorsofcode)
 
 ## 💡 About the project
-The Babylon.js starting template is designed to leverage the advantages of TypeScript while still allowing developers to write their code in JavaScript and keep the development experience free from a build step.
+The Babylon.js starting template is designed to leverage the advantages of TypeScript while still allowing developers to write their code in JavaScript
 
 The template is based on the `Starter HTML Template` from [Babylon.js](https://doc.babylonjs.com/setup/starterHTML)
 
 ## 🧭 Prerequisites
 
-* Node
+* Node 16+
 * Npm
 
 ## 🤖 Getting started
@@ -43,3 +43,5 @@ The code is distributed under the MIT License. See `LICENSE` for more informatio
 
 ## 😍 Acknowledgments
 [Babylon.js](https://www.babylonjs.com/) - Open sourced WebGL/WebGPU-based graphics engine written in Typescript
+
+[Vite](https://www.vitejs.dev/) - Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects.
