@@ -16,7 +16,7 @@ The template is based on the `Starter HTML Template` from [Babylon.js](https://d
 
 ## 🤖 Getting started
 
-1. Clone the repository
+1. You can either press the "Use this template" button or clone the repository
    ```sh
    git clone https://github.com/colorsofcode/babylonjs-starting-template.git
    ```
