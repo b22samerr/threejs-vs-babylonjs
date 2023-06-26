@@ -1,17 +1,12 @@
-import { CreateSphere } from "@babylonjs/core/Meshes/Builders/sphereBuilder.js"
-import { CreateGround } from "@babylonjs/core/Meshes/Builders/groundBuilder.js"
-import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight.js"
-import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera.js"
-import { Vector3 } from "@babylonjs/core/Maths/math.vector.js"
-import { Engine } from "@babylonjs/core/Engines/engine.js"
-import { Scene } from "@babylonjs/core/scene.js"
+import { FreeCamera, Engine, Scene, Vector3, HemisphericLight, CreateSphere, CreateGround } from "@babylonjs/core"
+
 
 // If you don't need the standard material you will still need to import it since the scene requires it.
 // @ts-ignore
 import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial.js";
 
 /** @type {HTMLCanvasElement} */
-const canvas = document.querySelector("#game-canvas")
+const canvas = document.querySelector("#babylon-canvas")
 
 const engine = new Engine(canvas, true)
 
