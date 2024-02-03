@@ -35,7 +35,7 @@ The template is based on the `Starter HTML Template` from [Babylon.js](https://d
 
 ## 😸 Contact
 
-Björn Hjorth - [@colorsofcode](https://twitter.com/colorsofcode)
+Björn Hjorth - [@colorsofcode](https://twitter.com/browesrmage)
 
 ## 🦉 License
 
