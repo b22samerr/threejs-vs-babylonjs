@@ -26,8 +26,15 @@ const seat = new THREE.Mesh(seatGeometry, material);
 seat.position.set(0, 5, 0);
 scene.add(seat);
 
+//Ryggstöd
+const backGeometry = new THREE.BoxGeometry(6, 6, 1);
+const back = new THREE.Mesh(backGeometry, material);
+back.position.set(0, 8, -2.5);
+scene.add(back);
+
 function animate() {
   requestAnimationFrame( animate );
+  //scene.rotation.y += (0.01);
   renderer.render( scene, camera );
 }
 
