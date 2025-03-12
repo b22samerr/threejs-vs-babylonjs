@@ -38,6 +38,24 @@ const hf = new THREE.Mesh(hfGeometry, material);
 hf.position.set(2.5, 2.5, 2.5);
 scene.add(hf);
 
+//Stolsben Vänsterfram (vf)
+const vfGeometry = new THREE.BoxGeometry(1, 4, 1);
+const vf = new THREE.Mesh(vfGeometry, material);
+vf.position.set(-2.5, 2.5, 2.5);
+scene.add(vf);
+
+//Stolsben Högerbak (hb)
+const hbGeometry = new THREE.BoxGeometry(1, 4, 1);
+const hb = new THREE.Mesh(hbGeometry, material);
+hb.position.set(2.5, 2.5, -2.5);
+scene.add(hb);
+
+//Stolsben Vänsterbak (vb)
+const vbGeometry = new THREE.BoxGeometry(1, 4, 1);
+const vb = new THREE.Mesh(vbGeometry, material);
+vb.position.set(-2.5, 2.5, -2.5);
+scene.add(vb);
+
 function animate() {
   requestAnimationFrame( animate );
   scene.rotation.y += (0.01);
