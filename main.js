@@ -14,11 +14,11 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 camera.position.set(0, 10, 20);
 camera.lookAt(0, 5, 0);
 
-const light = new THREE.DirectionalLight(0xffffff, 1);
+const light = new THREE.AmbientLight(0xffffff, 1);
 light.position.set(5, 10, 5);
 scene.add(light);
 
-const material = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
+const material = new THREE.MeshStandardMaterial({ color: 0x5D3317 });
 
 //Stolsits
 const seatGeometry = new THREE.BoxGeometry(6, 1, 6);
@@ -32,9 +32,15 @@ const back = new THREE.Mesh(backGeometry, material);
 back.position.set(0, 8, -2.5);
 scene.add(back);
 
+//Stolsben Högerfram (hf)
+const hfGeometry = new THREE.BoxGeometry(1, 4, 1);
+const hf = new THREE.Mesh(hfGeometry, material);
+hf.position.set(2.5, 2.5, 2.5);
+scene.add(hf);
+
 function animate() {
   requestAnimationFrame( animate );
-  //scene.rotation.y += (0.01);
+  scene.rotation.y += (0.01);
   renderer.render( scene, camera );
 }
 
