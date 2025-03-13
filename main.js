@@ -20,45 +20,56 @@ scene.add(light);
 
 const material = new THREE.MeshStandardMaterial({ color: 0x5D3317 });
 
-//Stolsits
-const seatGeometry = new THREE.BoxGeometry(6, 1, 6);
-const seat = new THREE.Mesh(seatGeometry, material);
-seat.position.set(0, 5, 0);
-scene.add(seat);
+function chair(x,y,z) {
+  const group = new THREE.Group();
 
-//Ryggstöd
-const backGeometry = new THREE.BoxGeometry(6, 6, 1);
-const back = new THREE.Mesh(backGeometry, material);
-back.position.set(0, 8, -2.5);
-scene.add(back);
+  //Stolsits
+  const seatGeometry = new THREE.BoxGeometry(6, 1, 6);
+  const seat = new THREE.Mesh(seatGeometry, material);
+  seat.position.set(0, 5, 0);
+  group.add(seat);
 
-//Stolsben Högerfram (hf)
-const hfGeometry = new THREE.BoxGeometry(1, 4, 1);
-const hf = new THREE.Mesh(hfGeometry, material);
-hf.position.set(2.5, 2.5, 2.5);
-scene.add(hf);
+  //Ryggstöd
+  const backGeometry = new THREE.BoxGeometry(6, 6, 1);
+  const back = new THREE.Mesh(backGeometry, material);
+  back.position.set(0, 8, -2.5);
+  group.add(back);
 
-//Stolsben Vänsterfram (vf)
-const vfGeometry = new THREE.BoxGeometry(1, 4, 1);
-const vf = new THREE.Mesh(vfGeometry, material);
-vf.position.set(-2.5, 2.5, 2.5);
-scene.add(vf);
+  //Stolsben Högerfram (hf)
+  const hfGeometry = new THREE.BoxGeometry(1, 4, 1);
+  const hf = new THREE.Mesh(hfGeometry, material);
+  hf.position.set(2.5, 2.5, 2.5);
+  group.add(hf);
 
-//Stolsben Högerbak (hb)
-const hbGeometry = new THREE.BoxGeometry(1, 4, 1);
-const hb = new THREE.Mesh(hbGeometry, material);
-hb.position.set(2.5, 2.5, -2.5);
-scene.add(hb);
+  //Stolsben Vänsterfram (vf)
+  const vfGeometry = new THREE.BoxGeometry(1, 4, 1);
+  const vf = new THREE.Mesh(vfGeometry, material);
+  vf.position.set(-2.5, 2.5, 2.5);
+  group.add(vf);
 
-//Stolsben Vänsterbak (vb)
-const vbGeometry = new THREE.BoxGeometry(1, 4, 1);
-const vb = new THREE.Mesh(vbGeometry, material);
-vb.position.set(-2.5, 2.5, -2.5);
-scene.add(vb);
+  //Stolsben Högerbak (hb)
+  const hbGeometry = new THREE.BoxGeometry(1, 4, 1);
+  const hb = new THREE.Mesh(hbGeometry, material);
+  hb.position.set(2.5, 2.5, -2.5);
+  group.add(hb);
+
+  //Stolsben Vänsterbak (vb)
+  const vbGeometry = new THREE.BoxGeometry(1, 4, 1);
+  const vb = new THREE.Mesh(vbGeometry, material);
+  vb.position.set(-2.5, 2.5, -2.5);
+  group.add(vb);
+
+  group.position.set(x, y, z);
+  scene.add(group);
+}
+
+//rendera två stolar
+chair(-8, 0, 0);  
+chair(8, 0, 0);
 
 function animate() {
   requestAnimationFrame( animate );
-  scene.rotation.y += (0.01);
+  // scene.rotation.y += (0.01);
   renderer.render( scene, camera );
 }
 
