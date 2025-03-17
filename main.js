@@ -24,52 +24,69 @@ function chair(x,y,z) {
   const group = new THREE.Group();
 
   //Stolsits
-  const seatGeometry = new THREE.BoxGeometry(6, 1, 6);
+  const seatGeometry = new THREE.BoxGeometry(3, 0.5, 3);
   const seat = new THREE.Mesh(seatGeometry, material);
-  seat.position.set(0, 5, 0);
+  seat.position.set(0, 2.5, 0);
   group.add(seat);
 
   //Ryggstöd
-  const backGeometry = new THREE.BoxGeometry(6, 6, 1);
+  const backGeometry = new THREE.BoxGeometry(3, 3, 0.5);
   const back = new THREE.Mesh(backGeometry, material);
-  back.position.set(0, 8, -2.5);
+  back.position.set(0, 4, -1.25);
   group.add(back);
 
   //Stolsben Högerfram (hf)
-  const hfGeometry = new THREE.BoxGeometry(1, 4, 1);
+  const hfGeometry = new THREE.BoxGeometry(0.5, 2, 0.5);
   const hf = new THREE.Mesh(hfGeometry, material);
-  hf.position.set(2.5, 2.5, 2.5);
+  hf.position.set(1.25, 1.25, 1.25);
   group.add(hf);
 
   //Stolsben Vänsterfram (vf)
-  const vfGeometry = new THREE.BoxGeometry(1, 4, 1);
+  const vfGeometry = new THREE.BoxGeometry(0.5, 2, 0.5);
   const vf = new THREE.Mesh(vfGeometry, material);
-  vf.position.set(-2.5, 2.5, 2.5);
+  vf.position.set(-1.25, 1.25, 1.25);
   group.add(vf);
 
   //Stolsben Högerbak (hb)
-  const hbGeometry = new THREE.BoxGeometry(1, 4, 1);
+  const hbGeometry = new THREE.BoxGeometry(0.5, 2, 0.5);
   const hb = new THREE.Mesh(hbGeometry, material);
-  hb.position.set(2.5, 2.5, -2.5);
+  hb.position.set(1.25, 1.25, -1.25);
   group.add(hb);
 
   //Stolsben Vänsterbak (vb)
-  const vbGeometry = new THREE.BoxGeometry(1, 4, 1);
+  const vbGeometry = new THREE.BoxGeometry(0.5, 2, 0.5);
   const vb = new THREE.Mesh(vbGeometry, material);
-  vb.position.set(-2.5, 2.5, -2.5);
+  vb.position.set(-1.25, 1.25, -1.25);
   group.add(vb);
 
   group.position.set(x, y, z);
   scene.add(group);
 }
 
-//rendera två stolar
-chair(-8, 0, 0);  
-chair(8, 0, 0);
+//Iteration av rendering för  en enkel visualiserings scen
+function renderChairs() {
+
+  let x = -30;
+  let y = -12;
+
+  //Iteration för 48 figurer
+  for(let i = 0; i < 48; i++){
+    chair(x,y);
+
+    x += 5;
+    //När 12 figurer renderats ändras positioneringen på y-axeln, detta skapar en ny rad
+    if((i + 1) % 12 === 0 ) {
+      x = -28;
+      y += 8;
+    }
+  }
+}
+
+renderChairs();
 
 function animate() {
   requestAnimationFrame( animate );
-  // scene.rotation.y += (0.01);
+  //scene.rotation.y += (0.01);
   renderer.render( scene, camera );
 }
 
