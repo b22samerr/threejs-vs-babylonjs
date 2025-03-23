@@ -63,23 +63,35 @@ function chair(x,y,z) {
   scene.add(group);
 }
 
+
 //Iteration av rendering för  en enkel visualiserings scen
 function renderChairs() {
+  //Spara tid innan renderingen påbörjas
+  const startTime = performance.now();
 
   let x = -30;
   let y = -12;
 
   //Iteration för 48 figurer
   for(let i = 0; i < 48; i++){
-    chair(x,y);
+    chair(x,y,0);
 
     x += 5;
     //När 12 figurer renderats ändras positioneringen på y-axeln, detta skapar en ny rad
     if((i + 1) % 12 === 0 ) {
       x = -28;
       y += 8;
+
     }
   }
+
+  //Spara tiden efter att alla figurer renderats
+  requestAnimationFrame(() => {
+    const endTime = performance.now(); // Mäta efter att WebGL renderat första gången
+    let measure = "Renderingstid:";
+    localStorage.setItem(measure,endTime - startTime);
+  });
+
 }
 
 renderChairs();
