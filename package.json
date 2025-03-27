@@ -12,5 +12,5 @@
   }, 
   "dependencies": {
     "@babylonjs/core": "^6.9.0"
-  }
+  } 
 }
