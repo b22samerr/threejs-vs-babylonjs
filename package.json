@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "vite": "^4.3.9"
-  },
+  }, 
   "dependencies": {
     "@babylonjs/core": "^6.9.0"
   }
