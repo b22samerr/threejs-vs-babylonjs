@@ -1,4 +1,4 @@
-import { FreeCamera, Engine, Scene, Vector3, HemisphericLight, MeshBuilder, StandardMaterial, Color3, Color4 } from "@babylonjs/core";
+import {ArcRotateCamera, FreeCamera, Engine, Scene, Vector3, HemisphericLight, MeshBuilder, StandardMaterial, Color3, Color4 } from "@babylonjs/core";
 
 
 
@@ -10,13 +10,13 @@ const engine = new Engine(canvas, true)
 
 const scene = new Scene(engine);
 
-const camera = new FreeCamera("camera1", new Vector3(-20, 10, 20), scene)
+//const camera = new FreeCamera("camera1", new Vector3(-20, 10, 20), scene)
 
 
-camera.setTarget(Vector3.Zero())
+//camera.setTarget(Vector3.Zero())
 
 
-camera.attachControl(canvas, true)
+//camera.attachControl(canvas, true)
 
 
 scene.clearColor = new Color4(0, 0, 0, 1)
@@ -26,7 +26,7 @@ const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene)
 
 const material = new StandardMaterial("ChairMaterial", scene);
 
-// Säte
+//Säte
 const seat = MeshBuilder.CreateBox("seat", {
     width: 4.5,
     height: 5,
@@ -37,7 +37,7 @@ seat.position = new Vector3(0,0,0);
 seat.material = material;
 seat.rotation = new Vector3(Math.PI / 2, 0, 0);
 
-//ryggstöd
+//Ryggstöd
 const back = MeshBuilder.CreateBox("back", {
     width: 4.5,
     height: 5,
@@ -47,8 +47,30 @@ const back = MeshBuilder.CreateBox("back", {
 back.position = new Vector3(0,2.7,-2);
 back.material = material;
 
+//Stolsben
+const hf = MeshBuilder.CreateBox("hf", {
+    width: 1,
+    height: 3,
+    depth: 1,
+}, scene);
+
+hf.position = new Vector3(1.75,-1.9,2);
+hf.material = material;
+
+
 material.diffuseColor = new Color3(0.7, 0.8, 0.8);
 
+//Justerbar kamera
+const camera = new ArcRotateCamera(
+    "arcCamera",
+    Math.PI / 2,
+    Math.PI / 2,
+    10,
+    new Vector3(0,0,0),
+    scene
+
+);
+camera.attachControl(canvas, true);
 
 
 window.addEventListener("resize", () => {
