@@ -99,6 +99,24 @@ return chairPositioning;
 
 }
 
+function renderChairs(){
+
+    let x = -37;
+    let y = -17;
+
+    for (let i = 0; i < 48; i++){
+        createChair(new Vector3(x,y,0));
+
+        x += 7
+
+        if((i + 1) % 12 === 0) {
+            x = -37;
+            y += 12;
+
+        }
+    }
+}
+
 material.diffuseColor = new Color3(0.7, 0.8, 0.8);
 
 //Justerbar kamera
@@ -107,7 +125,7 @@ const camera = new ArcRotateCamera(
     Math.PI / 2,
     Math.PI / 2,
     10,
-    new Vector3(0,0,0),
+    new Vector3(0,0,50),
     scene
 
 );
@@ -120,10 +138,7 @@ window.addEventListener("resize", () => {
     
 })
 
-const chair1 = createChair(new Vector3(-5,0,0));
-const chair2 = createChair(new Vector3(5,0,0));
-
-//createChair();
+renderChairs();
 
 engine.runRenderLoop(() => {
     scene.render() 
