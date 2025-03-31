@@ -57,6 +57,32 @@ const hf = MeshBuilder.CreateBox("hf", {
 hf.position = new Vector3(1.75,-1.9,2);
 hf.material = material;
 
+const vf = MeshBuilder.CreateBox("vf", {
+    width: 1,
+    height: 3,
+    depth: 1,
+}, scene);
+
+vf.position = new Vector3(-1.75,-1.9,2);
+vf.material = material;
+
+const hb = MeshBuilder.CreateBox("hb", {
+    width: 1,
+    height: 3,
+    depth: 1,
+}, scene);
+
+hb.position = new Vector3(1.75,-1.9,-2);
+hb.material = material;
+
+const vb = MeshBuilder.CreateBox("vb", {
+    width: 1,
+    height: 3,
+    depth: 1,
+}, scene);
+
+vb.position = new Vector3(-1.75,-1.9,-2);
+vb.material = material;
 
 material.diffuseColor = new Color3(0.7, 0.8, 0.8);
 
