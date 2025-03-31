@@ -1,4 +1,4 @@
-import {ArcRotateCamera, FreeCamera, Engine, Scene, Vector3, HemisphericLight, MeshBuilder, StandardMaterial, Color3, Color4 } from "@babylonjs/core";
+import {ArcRotateCamera, FreeCamera, Engine, Scene, Vector3, HemisphericLight, MeshBuilder, StandardMaterial, Color3, Color4, TransformNode } from "@babylonjs/core";
 
 
 
@@ -26,6 +26,10 @@ const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene)
 
 const material = new StandardMaterial("ChairMaterial", scene);
 
+function createChair(position) {
+    const chairPositioning = new TransformNode("chairPositioning", scene);
+    chairPositioning.position = position;
+
 //Säte
 const seat = MeshBuilder.CreateBox("seat", {
     width: 4.5,
@@ -36,6 +40,7 @@ const seat = MeshBuilder.CreateBox("seat", {
 seat.position = new Vector3(0,0,0);
 seat.material = material;
 seat.rotation = new Vector3(Math.PI / 2, 0, 0);
+seat.parent = chairPositioning;
 
 //Ryggstöd
 const back = MeshBuilder.CreateBox("back", {
@@ -46,6 +51,7 @@ const back = MeshBuilder.CreateBox("back", {
 
 back.position = new Vector3(0,2.7,-2);
 back.material = material;
+back.parent = chairPositioning;
 
 //Stolsben
 const hf = MeshBuilder.CreateBox("hf", {
@@ -56,6 +62,7 @@ const hf = MeshBuilder.CreateBox("hf", {
 
 hf.position = new Vector3(1.75,-1.9,2);
 hf.material = material;
+hf.parent = chairPositioning;
 
 const vf = MeshBuilder.CreateBox("vf", {
     width: 1,
@@ -65,6 +72,7 @@ const vf = MeshBuilder.CreateBox("vf", {
 
 vf.position = new Vector3(-1.75,-1.9,2);
 vf.material = material;
+vf.parent = chairPositioning;
 
 const hb = MeshBuilder.CreateBox("hb", {
     width: 1,
@@ -74,6 +82,7 @@ const hb = MeshBuilder.CreateBox("hb", {
 
 hb.position = new Vector3(1.75,-1.9,-2);
 hb.material = material;
+hb.parent = chairPositioning;
 
 const vb = MeshBuilder.CreateBox("vb", {
     width: 1,
@@ -83,6 +92,12 @@ const vb = MeshBuilder.CreateBox("vb", {
 
 vb.position = new Vector3(-1.75,-1.9,-2);
 vb.material = material;
+vb.parent = chairPositioning;
+
+
+return chairPositioning;
+
+}
 
 material.diffuseColor = new Color3(0.7, 0.8, 0.8);
 
@@ -101,7 +116,14 @@ camera.attachControl(canvas, true);
 
 window.addEventListener("resize", () => {
     engine.resize()
+
+    
 })
+
+const chair1 = createChair(new Vector3(-5,0,0));
+const chair2 = createChair(new Vector3(5,0,0));
+
+//createChair();
 
 engine.runRenderLoop(() => {
     scene.render() 
