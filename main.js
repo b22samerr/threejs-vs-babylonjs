@@ -101,6 +101,8 @@ return chairPositioning;
 
 function renderChairs(){
 
+    const startTime = performance.now();
+
     let x = -37;
     let y = -17;
 
@@ -115,6 +117,12 @@ function renderChairs(){
 
         }
     }
+
+    requestAnimationFrame(() => {
+        const endTime = performance.now(); // Mäta efter att WebGL renderat första gången
+        let measure = "Renderingstid:";
+        localStorage.setItem(measure,(endTime - startTime).toString());
+      });
 }
 
 material.diffuseColor = new Color3(0.7, 0.8, 0.8);
