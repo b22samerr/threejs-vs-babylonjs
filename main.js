@@ -3,9 +3,7 @@ import * as THREE from 'three';
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(2, 10, -60);
-
+const camera = new THREE.PerspectiveCamera( 46, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
@@ -13,7 +11,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
-camera.position.set(0, 0, -30);
+camera.position.set(0, 10, -55);
 camera.lookAt(0, 0, 0);
 
 const light = new THREE.AmbientLight(0xffffff, 1);
@@ -23,6 +21,7 @@ scene.add(light);
 const material = new THREE.MeshStandardMaterial({ 
   color: 0x5D3317,
   opacity: 1, 
+  roughness: 0.5,
 });
 
 function renderSphere(position) {
@@ -37,8 +36,8 @@ function renderSphere(position) {
 
 function render() {
 
-  let x = -38;
-  let y = -12;
+  let x = -37;
+  let y = -17;
 
   //Iteration för 48 figurer
   for(let i = 0; i < 48; i++){
@@ -47,8 +46,8 @@ function render() {
     x += 7;
     //När 12 figurer renderats ändras positioneringen på y-axeln, detta skapar en ny rad
     if((i + 1) % 12 === 0 ) {
-      x = -38;
-      y += 8;
+      x = -37;
+      y += 12;
 
     }
   }
