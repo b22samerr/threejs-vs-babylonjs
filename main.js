@@ -11,7 +11,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
-camera.position.set(0, 10, -250);
+camera.position.set(0, 10, -130);
 camera.lookAt(0, 0, 0);
 
 const light = new THREE.AmbientLight(0xffffff, 1);
@@ -36,17 +36,17 @@ function renderSphere(position) {
 
 function render() {
 
-  let x = -100;
-  let y = -85;
+  let x = -80;
+  let y = -45;
 
   //Iteration för 48 figurer
-  for(let i = 0; i < 492; i++){
+  for(let i = 0; i < 200; i++){
     renderSphere(new THREE.Vector3(x, y, 0));
 
     x += 7;
     //När 12 figurer renderats ändras positioneringen på y-axeln, detta skapar en ny rad
-    if((i + 1) % 41 === 0 ) {
-      x = -100;
+    if((i + 1) % 25 === 0 ) {
+      x = -80;
       y += 12;
 
     }
