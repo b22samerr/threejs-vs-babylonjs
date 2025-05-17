@@ -16,7 +16,7 @@ scene.clearColor = new Color4(0, 0, 0, 1);
 const light = new HemisphericLight("light", new Vector3(0, 0, 0), scene);
 light.intensity = 1.0;
 
-const camera = new FreeCamera("camera1", new Vector3(0, 10, -120), scene)
+const camera = new FreeCamera("camera1", new Vector3(0, 10, -85), scene)
 
 camera.setTarget(Vector3.Zero());
 
@@ -27,23 +27,23 @@ const material = new StandardMaterial("Material", scene);
 material.specularColor = new Color3(0, 0, 0);
 
 function renderSphere(position) {
-    const sphere = CreateSphere("sphere", { diameter: 4, segments: 32 }, scene);
+    const sphere = CreateSphere("sphere", { diameter: 4, segments: 16 }, scene);
     sphere.position = position;
     sphere.material = material;
 }
 
 function render(){
 
-    let x = -80;
-    let y = -45;
+    let x = -38;
+    let y = -22;
 
-    for (let i = 0; i < 200; i++){
+    for (let i = 0; i < 48; i++){
         renderSphere(new Vector3(x,y,0));
 
         x += 7;
 
-        if((i + 1) % 25 === 0) {
-            x = -80;
+        if((i + 1) % 12 === 0) {
+            x = -38;
             y += 12;
 
         }
