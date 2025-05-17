@@ -27,7 +27,7 @@ const material = new StandardMaterial("Material", scene);
 material.specularColor = new Color3(0, 0, 0);
 
 function renderSphere(position) {
-    const sphere = CreateSphere("sphere", { diameter: 4, segments: 16 }, scene);
+    const sphere = CreateSphere("sphere", { diameter: 4, segments: 27 }, scene);
     sphere.position = position;
     sphere.material = material;
 }
