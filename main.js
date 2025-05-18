@@ -25,7 +25,7 @@ const material = new THREE.MeshStandardMaterial({
 });
 
 function renderSphere(position) {
-  const geometry = new THREE.SphereGeometry(2, 16, 16);
+  const geometry = new THREE.SphereGeometry(2, 27, 27);
   const sphere = new THREE.Mesh(geometry, material);
   sphere.position.copy(position);
   scene.add(sphere);
